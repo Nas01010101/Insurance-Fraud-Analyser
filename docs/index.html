@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Claims Analytics</title>
+    <meta name="description" content="ML-powered insurance claims analytics and fraud detection">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo">Insurance Claims Analytics</a>
+            <nav class="nav">
+                <a href="#overview">Overview</a>
+                <a href="#analytics">Analytics</a>
+                <a href="#fraud">Fraud Detection</a>
+                <a href="#tech">Technology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Insurance Claims Analytics</h1>
+                <p class="lead">Machine learning fraud detection system analyzing 12,000+ insurance claims with SQL,
+                    Python, and SQL. </p>
+            </div>
+        </section>
+
+        <section id="overview" class="section">
+            <div class="container">
+                <h2>Overview</h2>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-value" id="kpi-claims">-</span>
+                        <span class="metric-label">Total Claims</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="kpi-payout">-</span>
+                        <span class="metric-label">Total Payout</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="kpi-approval">-</span>
+                        <span class="metric-label">Approval Rate</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="kpi-processing">-</span>
+                        <span class="metric-label">Avg Processing Days</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics" class="section alt">
+            <div class="container">
+                <h2>Claims Analytics</h2>
+                <div class="charts-row">
+                    <div class="chart-box">
+                        <h3>Monthly Trend</h3>
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Claims by Type</h3>
+                        <canvas id="typeChart"></canvas>
+                    </div>
+                </div>
+                <div class="charts-row">
+                    <div class="chart-box">
+                        <h3>Claims by Province</h3>
+                        <canvas id="provinceChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Status Distribution</h3>
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fraud" class="section">
+            <div class="container">
+                <h2>Fraud Detection</h2>
+                <div class="fraud-metrics">
+                    <div class="fraud-stat">
+                        <span class="stat-value critical" id="fraud-critical">-</span>
+                        <span class="stat-label">Critical</span>
+                    </div>
+                    <div class="fraud-stat">
+                        <span class="stat-value high" id="fraud-high">-</span>
+                        <span class="stat-label">High</span>
+                    </div>
+                    <div class="fraud-stat">
+                        <span class="stat-value medium" id="fraud-medium">-</span>
+                        <span class="stat-label">Medium</span>
+                    </div>
+                    <div class="fraud-stat">
+                        <span class="stat-value low" id="fraud-low">-</span>
+                        <span class="stat-label">Low</span>
+                    </div>
+                </div>
+                <div class="charts-row">
+                    <div class="chart-box">
+                        <h3>Risk Distribution</h3>
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <h3>Feature Importance</h3>
+                        <canvas id="importanceChart"></canvas>
+                    </div>
+                </div>
+
+                <h3>Flagged Claims</h3>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Claim ID</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Risk Score</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody id="claims-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="section alt">
+            <div class="container">
+                <h2>Technology</h2>
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <h4>Python</h4>
+                        <p>Pandas, NumPy, Faker</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4>Machine Learning</h4>
+                        <p>Scikit-learn, Isolation Forest, Random Forest</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4>SQL</h4>
+                        <p>Portfolio analysis queries</p>
+                    </div>
+                    <div class="tech-item highlight">
+                        <h4>Streamlit</h4>
+                        <p>Interactive Python dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Insurance Claims Analytics — TD Insurance Data Analytics Project</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
