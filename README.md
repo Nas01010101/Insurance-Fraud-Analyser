@@ -1,8 +1,4 @@
-# Insurance Claims Analytics & Fraud Detection
 
-ML-powered insurance claims analytics platform with fraud detection for TD Insurance internship portfolio.
-
-![Dashboard Preview](docs/preview.png)
 
 ## Project Overview
 
