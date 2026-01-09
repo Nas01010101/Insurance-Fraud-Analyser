@@ -25,5 +25,4 @@ Thumbs.db
 # Local development
 *.log
 
-# Generated Data
-data/
+# Generated Data - now tracked for Streamlit Cloud deployment
