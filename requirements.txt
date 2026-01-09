@@ -5,3 +5,4 @@ faker>=19.0.0
 streamlit>=1.25.0
 plotly>=5.15.0
 scipy>=1.10.0
+matplotlib>=3.7.0
