@@ -458,4 +458,4 @@ if df is not None:
 
 # Footer info
 st.sidebar.divider()
-st.sidebar.info("Developed for TD Insurance Portfolio Project")
+st.sidebar.info("Insurance Claims Analytics Dashboard")
