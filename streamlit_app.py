@@ -41,6 +41,40 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# Add src to path for imports
+import sys
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+def generate_data_if_missing():
+    """Generate data files if they don't exist."""
+    data_files = ['data/claims_master.csv', 'data/customers.csv', 'data/fraud_scores.csv']
+    
+    if all(os.path.exists(f) for f in data_files):
+        return True
+    
+    # Create data directory if needed
+    os.makedirs('data', exist_ok=True)
+    
+    try:
+        from data_generator import InsuranceDataGenerator
+        from fraud_detection import FraudDetectionModel
+        
+        with st.spinner('Generating data for first-time setup... This may take a minute.'):
+            # Generate synthetic data
+            generator = InsuranceDataGenerator(n_customers=5000, n_claims=12000)
+            customers_df, claims_df = generator.export_to_csv('data')
+            
+            # Train model and generate scores
+            model = FraudDetectionModel()
+            model.train(claims_df)
+            model.export_predictions(claims_df, 'data/fraud_scores.csv')
+            model.export_feature_importance('data/feature_importance.csv')
+        
+        return True
+    except Exception as e:
+        st.error(f"Failed to generate data: {e}")
+        return False
+
 # Data loading with caching
 @st.cache_data
 def load_data():
@@ -55,10 +89,17 @@ def load_data():
         
         return df, customers
     except FileNotFoundError:
-        st.error("Data files not found. Please run 'python main.py' first.")
         return None, None
 
+# Generate data if missing, then load
+if not generate_data_if_missing():
+    st.stop()
+
 df, customers = load_data()
+
+if df is None:
+    st.error("Failed to load data. Please check the logs.")
+    st.stop()
 
 if df is not None:
     # Sidebar
